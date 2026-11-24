@@ -1,0 +1,98 @@
+/* ─────────────────────────────────────────────
+   HANJONJAE · 모션
+   1) 첫 방문 인트로  2) 첫 화면 장면 전환
+   3) 풀화면 사진 패럴랙스  4) 제목 한 줄씩 올라오기
+   ───────────────────────────────────────────── */
+
+/* 1) 인트로 — 한지 위에 로고가 먹처럼 번진 뒤 위로 걷힘 */
+.veil {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--hanji);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
+  transition: transform 1.2s cubic-bezier(.76, 0, .24, 1);
+}
+.veil__logo { width: min(240px, 52vw); opacity: 0; filter: blur(16px); transform: scale(1.06); animation: inkIn 1.7s .15s cubic-bezier(.22, .61, .36, 1) forwards; }
+.veil__logo img { width: 100%; height: auto; }
+.veil__line { font-family: "Nanum Myeongjo", "AppleMyungjo", serif; font-size: 12px; letter-spacing: .9em; margin-right: -.9em; color: var(--stone); opacity: 0; animation: fadeIn 1.2s .9s ease forwards; }
+.veil.is-lift { transform: translateY(-100%); }
+.veil.is-lift .veil__logo, .veil.is-lift .veil__line { transition: opacity .5s; opacity: 0 !important; }
+html.no-intro .veil { display: none; }
+body.is-intro { overflow: hidden; }
+@keyframes inkIn { to { opacity: 1; filter: blur(0); transform: none; } }
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* 2) 첫 화면 장면 전환 — 영상 → 사진들이 천천히 겹치며 바뀜 */
+.hero__media { z-index: 0; will-change: transform; }
+.hero__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.8s ease; overflow: hidden; }
+.hero__slide.is-active { opacity: 1; z-index: 1; }
+.hero__slide video, .hero__slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero__slide img { transform: scale(1.04); transition: transform 9s cubic-bezier(.25, .46, .45, .94); }
+.hero__slide.is-active img { transform: scale(1); }
+.hero__media video { animation: none; }
+.hero__slide.is-active video { animation: heroZoom 12s ease-out both; }
+
+.hero__pager { position: absolute; z-index: 3; right: var(--gutter); bottom: clamp(60px, 11vh, 120px); display: flex; flex-direction: column; align-items: flex-end; gap: 16px; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.35); }
+.hero__label { font-family: var(--f-title); font-size: 11px; letter-spacing: .26em; color: rgba(255,255,255,.75); display: flex; align-items: baseline; gap: 8px; }
+.hero__num { color: #fff; font-size: 13px; }
+.hero__sep { opacity: .5; }
+.hero__name { font-weight: 400; color: #fff; margin-left: 14px; min-width: 96px; text-align: right; transition: opacity .6s; }
+.hero__name.is-swap { opacity: 0; }
+.hero__bars { display: flex; gap: 8px; }
+.hero__bars button { width: 46px; height: 18px; display: flex; align-items: center; }
+.hero__bars i { display: block; width: 100%; height: 1px; background: rgba(255,255,255,.35); position: relative; overflow: hidden; }
+.hero__bars i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 0; background: #fff; }
+.hero__bars button.is-done i::after { width: 100%; }
+.hero__bars button.is-run i::after { width: 100%; transition: width var(--dur, 7000ms) linear; }
+.hero__scroll { right: 50%; transform: translateX(50%); bottom: 26px; }
+.hero__scroll i { height: 46px; }
+
+/* 3) 패럴랙스 — 사진이 스크롤보다 천천히 움직임 */
+[data-parallax] { overflow: hidden; }
+[data-parallax] img { height: 116% !important; position: relative; top: -8%; will-change: transform; }
+
+/* 4) 제목 — 줄마다 시간차를 두고 선 아래에서 올라옴 */
+.line { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+.line__in { display: block; transform: translateY(110%); transition: transform 1s cubic-bezier(.22, .61, .36, 1); }
+.is-in .line__in { transform: none; }
+
+@media (max-width: 820px) {
+  .hero__pager { left: var(--gutter); right: var(--gutter); bottom: 26px; flex-direction: row; align-items: center; justify-content: space-between; }
+  .hero__copy { bottom: 84px; }
+  .hero__bars button { width: 30px; height: 32px; }
+  .hero__name { min-width: 0; margin-left: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .veil { display: none; }
+  .hero__slide img, .hero__slide.is-active img { transform: none; transition: none; }
+  .line__in { transform: none; transition: none; }
+  [data-parallax] img { height: 100% !important; top: 0; }
+}
+
+/* 5) 장면 전환 — 메뉴로 이동할 때 한지 막이 올라와 덮었다가 걷힘 */
+.wipe {
+  position: fixed; inset: 0; z-index: 150; pointer-events: none;
+  background: var(--hanji);
+  display: grid; place-items: center;
+  transform: translateY(100%);
+}
+.wipe img { width: 110px; height: auto; opacity: 0; transform: translateY(14px); transition: opacity .35s, transform .5s cubic-bezier(.22,.61,.36,1); }
+.wipe.is-cover { transform: translateY(0); transition: transform .42s cubic-bezier(.76, 0, .24, 1); pointer-events: auto; }
+.wipe.is-cover img { opacity: .5; transform: none; transition-delay: .12s; }
+.wipe.is-leave { transform: translateY(-100%); transition: transform .55s cubic-bezier(.76, 0, .24, 1); }
+.wipe.is-leave img { opacity: 0; transition-delay: 0s; }
+
+/* 6) 섹션 사진 — 아래에서 위로 열리며 살짝 확대됐다가 제자리로 (장이 넘어가는 느낌)
+   틀(.reveal-img)은 그대로 두고 안쪽 이미지에만 가림을 걸어야 화면 감지가 정상 동작 */
+.reveal-img, .reveal-img.is-in { clip-path: none; transition: none; }
+.reveal-img img { clip-path: inset(100% 0 0 0); transform: scale(1.04); transition: clip-path 1s cubic-bezier(.76, 0, .24, 1), transform 1.4s cubic-bezier(.22, .61, .36, 1); }
+.reveal-img.is-in img { clip-path: inset(0 0 0 0); transform: none; }
+.reveal-img figcaption { opacity: 0; transition: opacity .8s .7s; }
+.reveal-img.is-in figcaption { opacity: 1; }
+.overlap__main.is-in:hover img, .split__img.is-in:hover img, .gallery figure.is-in:hover img { transform: scale(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  .wipe { display: none; }
+  .reveal-img img { clip-path: none; transform: none; transition: none; }
+  .reveal-img figcaption { opacity: 1; }
+}

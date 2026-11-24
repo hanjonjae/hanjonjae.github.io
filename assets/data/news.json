@@ -2,7 +2,15 @@
  "blog": "https://blog.naver.com/kgc7215",
  "posts": [
   {
-   "title": "옛 물건의 새 숨결을 불어넣다 - 한존재에 자리 잡은 선조들의 일상물건(한때 필수품, 지금은 골동품, 4차)",
+   "title": "옛 물건에 새 숨결을 불어넣다 - 일상 필요물건(5차)",
+   "link": "https://blog.naver.com/kgc7215/224490815262",
+   "date": "2026.11.25",
+   "category": "전통한옥한존재",
+   "excerpt": "한때는 집집마다 있던 필수품,지금은 골동품이되었습니다 한옥스테이 한존재입니다. 지난 11월 18일 퇴직회사 동기 정00에게서 기증받은 옛 물건중 이번에는 과거에 우리 생활과 아주밀접했지만 지금은 골…",
+   "image": "https://blogthumb.pstatic.net/MjAyNjExMjNfMjQz/MDAxNzk1NDM0NDUyMTIw.gdmPGnbbkzqNXar8UgvjxNp4gjRYfsrwxcLPKEywRJQg.qziIcmHVXMme5e-k8h24bjKLb1RjUnc5_OVnhUJqmW8g.JPEG/900_20261123_103942.jpg?type=s3"
+  },
+  {
+   "title": "옛 물건에 새 숨결을 불어넣다 - 생활물건(4차)",
    "link": "https://blog.naver.com/kgc7215/224489704729",
    "date": "2026.11.24",
    "category": "전통한옥한존재",
@@ -10,7 +18,7 @@
    "image": "https://blogthumb.pstatic.net/MjAyNjExMjNfOTAg/MDAxNzk1NDM1ODU0Nzc4.3N-3mW1YYgVNWAyLcmERZHOuA6zwigGt34AovL4kja4g.-22uA6ppJkofCk3OX2nfVG67_Kcjn80CdDkO6UKm4fMg.JPEG/900_20261123_103731.jpg?type=s3"
   },
   {
-   "title": "옛 물건의 새 숨결을 불어넣다 - 한존재에 자리 잡은 선조들의 생활물건(불을 밝히던 물건들, 3차)",
+   "title": "옛 물건에 새 숨결을 불어넣다 - 생활물건(불을 밝히던 물건들, 3차)",
    "link": "https://blog.naver.com/kgc7215/224489332192",
    "date": "2026.11.24",
    "category": "전통한옥한존재",
@@ -26,7 +34,7 @@
    "image": "https://blogthumb.pstatic.net/MjAyNjExMjNfNzUg/MDAxNzk1NDI0ODg0NDEw.eCdfHicF5kk4T9gglDFeY3FOJ_D0Ori-9ZHGkrRHbCgg.G073e5D_QokBBu8vd3bSHW58NGGxSqhKDKfLaN8ZBlUg.JPEG/900_20261123_162043.jpg?type=s3"
   },
   {
-   "title": "옛 물건의 새 숨결을 불어넣다 – 한존재에 자리 잡은 선조들의 생활도구(2차)",
+   "title": "옛 물건에 새 숨결을 불어넣다 – 한존재에 자리 잡은 선조들의 생활도구(2차)",
    "link": "https://blog.naver.com/kgc7215/224487846992",
    "date": "2026.11.23",
    "category": "힐링ㆍ삶",
@@ -40,14 +48,6 @@
    "category": "재미있는 농사일",
    "excerpt": "며칠간 추위가 지나고 따뜻해진 오후, 부직포를 걷어 무 수확하다 지난 며칠간 매서운 추위가 이어졌는데, 오늘 오후에는 날씨가 한결 포근해졌습니다. 마음 졸이며 덮어 두었던 부직포를 조심스럽게 걷어보…",
    "image": "https://blogthumb.pstatic.net/MjAyNjExMjJfMjk4/MDAxNzk1MzMwODYwMTYw.FDiq8GOMv3Ksl19aX8hOPFK1VDWA2CnazIzCswK6e7Ag.T1nuLSp21eB1VvTEM548DDUgyn7q5WhAAY14woHlDd0g.JPEG/900_20261122_135700.jpg?type=s3"
-  },
-  {
-   "title": "옛 물건에 새 숨결을 불어넣다 – 한존재에 자리 잡은 선조들의 생활도구(1차)",
-   "link": "https://blog.naver.com/kgc7215/224485597106",
-   "date": "2026.11.21",
-   "category": "전통한옥한존재",
-   "excerpt": "지난 11월 18일, 퇴직회사 정00동기에게 기증받은 옛 물건들을 손질하여 한존재 곳곳에 배치했습니다. 이번에는 1차로 큰 것들부터 골랐습니다. 고가구 1점, 맷돌 1개, 절구통 2개, 소여물통 1…",
-   "image": "https://blogthumb.pstatic.net/MjAyNjExMjBfMzcg/MDAxNzk1MTcwODU3NTc3.AA3NSO4elrXScpNlT57foEdiHjKfX7eqeNKyxC-TcXsg.vsJY0Y_r_yXJEf069QXLdHZkh6nksSCx8iATt3UFuXsg.JPEG/900_20261120_145902.jpg?type=s3"
   }
  ]
 }

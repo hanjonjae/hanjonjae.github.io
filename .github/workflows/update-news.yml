@@ -27,7 +27,7 @@ jobs:
         run: python3 tools/update_news.py
       - name: 매달 출석 체크 기록
         if: github.event.schedule == '0 1 1 * *' || inputs.keepalive
-        run: TZ=Asia/Seoul date "+%Y.%m.%d 확인함" > .github/last-check.txt
+        run: TZ=Asia/Seoul date "+%Y.%m.%d %H:%M 확인함" > .github/last-check.txt
       - name: 바뀐 게 있으면 저장
         run: |
           git add assets/data/news.json .github/last-check.txt

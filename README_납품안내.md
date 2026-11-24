@@ -68,6 +68,6 @@ assets/video/         첫 화면 영상 (hero.mp4 데스크톱 / hero_m.mp4 모�
   `python3 tools/update_news.py`
 - **자동 갱신 설정됨**: GitHub Actions(`.github/workflows/update-news.yml`)가 매일 오전 8시·오후 8시(한국시간)에 블로그를 확인하고, 새 글이 있으면 홈페이지에 반영합니다.
   - 바로 반영하고 싶으면 저장소의 Actions 탭 → "한존재 소식 갱신" → Run workflow.
-  - 저장소에 60일 동안 변경이 없으면 GitHub가 예약 실행을 멈춥니다. 그때는 Actions 탭에서 다시 켜(Enable) 주세요.
+  - 매달 1일에 `.github/last-check.txt`에 "확인함" 기록을 남겨, 블로그를 오래 쉬어도 GitHub가 예약 실행을 멈추지 않게 해 두었습니다 (GitHub는 60일간 변화가 없으면 멈춤). 혹시 멈췄다는 메일이 오면 Actions 탭에서 다시 켜(Enable) 주세요.
 - 네이버가 다른 사이트에서 RSS를 직접 읽지 못하게 막아 두어서(CORS) 이 "미리 받아두기" 방식이 필요합니다.
 - 블로그 사진은 네이버 서버에서 바로 불러옵니다(파일을 복사하지 않음). 파일을 열 수 없으면 섹션은 자동으로 숨겨집니다.

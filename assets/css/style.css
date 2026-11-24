@@ -758,3 +758,17 @@ section[id] { scroll-margin-top: 76px; }
   .cta__btns { flex-direction: column; align-items: center; }
   .cta__btns .btn { width: min(100%, 280px); }
 }
+
+/* ───────── 모바일 여백 (좌우 숨 쉴 공간 넓힘) ───────── */
+@media (max-width: 820px) {
+  :root { --gutter: 32px; }
+}
+@media (max-width: 420px) {
+  :root { --gutter: 28px; }
+  body { font-size: 15px; line-height: 1.85; }
+  .muted, .table__v em, .split p, .feature__card p { word-break: keep-all; }
+  p, li, .table__v { word-break: keep-all; }
+  .feature__card, .feature--right .feature__card { padding: 36px 26px; }
+  .table__row { padding: 26px 0; }
+  .sec-head { margin-bottom: 44px; }
+}

@@ -38,9 +38,12 @@ assets/video/         첫 화면 영상 (hero.mp4 데스크톱 / hero_m.mp4 모�
 - `logo_ink.png` — 스크롤 후 한지색 헤더
 - 둘 다 투명 배경 원본입니다.
 
-## 올리기 전에 채울 것
+## 호스팅 (GitHub Pages)
 
-1. **공유 미리보기 이미지(og:image)** — 도메인이 정해지면 `<meta property="og:image">`를 `https://도메인/assets/img/autumn_front.jpg` 같은 전체 주소로 바꿔주세요. (카카오톡·인스타 링크 미리보기용)
+- 주소: https://hanjonjae.github.io  (영문: https://hanjonjae.github.io/?lang=en)
+- 저장소: https://github.com/hanjonjae/hanjonjae.github.io  (공개 저장소, 한존재 GitHub 계정)
+- 수정 방법: 이 폴더에서 파일을 고친 뒤 커밋해서 `git push` 하면 1분 안에 홈페이지에 반영됩니다.
+- 나중에 개인 도메인을 연결하면 `index.html`의 og:image · og:url · canonical 주소도 새 도메인으로 바꿔주세요.
 
 ## 하단 사업자 정보
 
@@ -60,12 +63,11 @@ assets/video/         첫 화면 영상 (hero.mp4 데스크톱 / hero_m.mp4 모�
 
 ## 한존재 소식 (대표님 블로그 자동 연결)
 
-- 홈페이지의 "한존재 소식"은 `assets/data/news.json`에 저장된 블로그(blog.naver.com/kgc7215) 최신 글 3개를 보여줍니다.
+- 홈페이지의 "한존재 소식"은 `assets/data/news.json`에 저장된 블로그(blog.naver.com/kgc7215) 최신 글 6개를 보여줍니다.
 - 새 글을 반영하려면 홈페이지 폴더에서 아래를 실행한 뒤, 바뀐 `assets/data/news.json`을 서버에 올리면 됩니다.
   `python3 tools/update_news.py`
-- **자동으로 하려면** 호스팅에서 이 명령을 하루 1~2번 돌리게 걸어두면 됩니다.
-  - GitHub Pages: GitHub Actions 예약 실행(cron)으로 스크립트 실행 → 커밋
-  - Netlify / Cloudflare Pages: 예약 빌드(빌드 명령에 스크립트 추가) 또는 하루 1번 빌드 훅 호출
-  - 카페24·가비아 같은 일반 웹호스팅: 서버 크론에 등록하거나, 사무실 PC에서 주기적으로 실행해 업로드
+- **자동 갱신 설정됨**: GitHub Actions(`.github/workflows/update-news.yml`)가 매일 오전 8시·오후 8시(한국시간)에 블로그를 확인하고, 새 글이 있으면 홈페이지에 반영합니다.
+  - 바로 반영하고 싶으면 저장소의 Actions 탭 → "한존재 소식 갱신" → Run workflow.
+  - 저장소에 60일 동안 변경이 없으면 GitHub가 예약 실행을 멈춥니다. 그때는 Actions 탭에서 다시 켜(Enable) 주세요.
 - 네이버가 다른 사이트에서 RSS를 직접 읽지 못하게 막아 두어서(CORS) 이 "미리 받아두기" 방식이 필요합니다.
 - 블로그 사진은 네이버 서버에서 바로 불러옵니다(파일을 복사하지 않음). 파일을 열 수 없으면 섹션은 자동으로 숨겨집니다.

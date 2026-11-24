@@ -1,5 +1,7 @@
 # 한존재 홈페이지 — 납품 안내
 
+> 수정 작업을 맡은 분은 **`인수인계_작업자용.md`** 를 먼저 읽어주세요.
+
 정적 HTML 사이트입니다. 빌드 과정 없이 폴더째 웹호스팅(카페24·가비아·Netlify·GitHub Pages 등)에 올리면 됩니다.
 
 ## 구성
@@ -8,7 +10,7 @@
 index.html            홈페이지 (국문·영문이 한 페이지에 함께 들어 있음)
 en/index.html         예전 영문 주소용 — 자동으로 index.html?lang=en 으로 이동
 assets/css/style.css  공통 스타일
-assets/css/motion.css 모션 (인트로·첫 화면 장면 전환·패럴랙스·제목 효과) — 이 파일 링크를 빼면 모션만 꺼짐
+assets/css/motion.css 모션 (인트로·첫 화면 장면 전환·제목 효과·메뉴 이동 막) — 이 파일 링크를 빼면 모션만 꺼짐
 assets/js/main.js     국문/영문 전환·메뉴·슬라이더·상세 팝업·스크롤 효과
 assets/fonts/         웹폰트 (woff2, 자체 호스팅)
 assets/img/           사진·로고 (각 사진은 원본 2000px + 모바일용 -1000.jpg)

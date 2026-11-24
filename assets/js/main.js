@@ -73,7 +73,10 @@
   const onScroll = () => {
     const past = window.scrollY > (hero ? hero.offsetHeight - 90 : 10);
     header.classList.toggle("is-solid", past);
-    sideBook && sideBook.classList.toggle("is-show", past);
+    // 마지막 예약 섹션부터는 큰 예약 버튼이 있으니 둥근 예약 버튼을 숨김
+    const cta = $("#reservation");
+    const atEnd = cta && cta.getBoundingClientRect().top < window.innerHeight * 0.8;
+    sideBook && sideBook.classList.toggle("is-show", past && !atEnd);
     toTop && toTop.classList.toggle("is-show", window.scrollY > window.innerHeight * 1.5);
   };
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -343,7 +346,7 @@
     wipe.classList.toggle("is-leave", false);
     wipe.classList.add("is-cover");
     setTimeout(() => {
-      const y = hash === "#top" ? 0 : target.getBoundingClientRect().top + window.scrollY - 72;
+      const y = hash === "#top" ? 0 : target.getBoundingClientRect().top + window.scrollY - (window.innerWidth <= 820 ? 58 : 76);
       window.scrollTo({ top: Math.max(0, y), behavior: "instant" });
       const u = new URL(location.href); u.hash = hash === "#top" ? "" : hash;
       history.replaceState(null, "", u);
